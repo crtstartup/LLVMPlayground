@@ -26,7 +26,7 @@ configure-llvm:
 	${CMAKE} \
 		-H${LLVM_SOURCE_DIR} \
 		-B${LLVM_BUILD_DIR} \
-		-G Ninja \
+		-G "Unix Makefiles" \
 		-DCMAKE_BUILD_TYPE=Debug \
 		-DLLVM_ENABLE_ASSERTIONS=On \
 		-DLLVM_TARGETS_TO_BUILD="X86" \
@@ -47,7 +47,7 @@ configure-playground:
 		-B${PLAYGROUND_BUILD_DIR} \
 		-DLLVM_CMAKE_CONFIG_PATH=${LLVM_BUILD_DIR}/lib/cmake/llvm \
 		-DCLANG_CMAKE_CONFIG_PATH=${LLVM_BUILD_DIR}/lib/cmake/clang \
-		-G Ninja \
+		-G "Unix Makefiles" \
 		-DCMAKE_BUILD_TYPE=Debug
 
 build-playground:
